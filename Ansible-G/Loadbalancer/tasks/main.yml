@@ -1,0 +1,16 @@
+---
+# tasks file for Loadbalancer
+
+- name: "setup load balancer"
+  package:
+    name: "haproxy"
+
+
+- template:
+    dest: "/etc/haproxy/haproxy.cfg"
+    src: "haproxy.cfg.j2"
+
+- service:
+    name: "haproxy"
+    state: restarted
+

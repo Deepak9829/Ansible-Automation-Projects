@@ -1,0 +1,20 @@
+- hosts: ubuntu
+  # vars_files:
+  #   - "{{ansible_facts['distribution']}}.yml"
+ # become: yes
+  #become_user: root
+  tasks:
+  - name: Print all available facts
+    debug:
+      var: ansible_facts
+
+  - name: Install webserver
+    package:
+       name: "{{webserver}}"
+       state: present
+
+  - name: Start service
+    service:
+        name: "{{webserver}}"
+        state: started
+

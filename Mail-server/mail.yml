@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars_files:
+  - mysecret.yml
+  tasks:
+  - name: sending the email using Gmail SMTP server
+    mail:
+      host: smtp.gmail.com
+      port: 587
+      username: "{{u}}"  
+      password: "{{p}}"
+      to: meghasainismpr@gmail.com
+      subject: ansible training
+      body: hi i am deep from ansible

@@ -1,0 +1,26 @@
+---
+# tasks file for Apache-web
+
+- name: " Installing httpd software"
+  package:
+    name: "httpd"
+
+- name: "Installing php"
+  package:
+    name: "php"
+
+- copy:
+    src: "index.php"
+    dest: "/var/www/html/index.php"
+
+- name: " Stating httpd service"
+  service:
+    name: "httpd"
+    state: started
+
+   
+
+
+
+
+
